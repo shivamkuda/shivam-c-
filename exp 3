@@ -1,0 +1,293 @@
+
+#incluse<iostream>
+using namespace std;
+class student  // creation of a student class
+{
+public:
+string name;
+string fatherName;
+string phoneNumber;
+int rollNo;
+string dateOfBirth;
+int #include<iostream>semester;
+string email;
+char addr[50];
+
+public:
+		void input_details()
+		{
+		cout<<" \n\nEnter Student Name ===>";
+		cin>>name;
+                cout<<" \nEnter Father Name ===>";
+		cin>>fatherName;
+                cout<<"\n Enter Contact number ===>";
+		cin>>phoneNumber;
+                cout<<" \nEnter Date Of Birth ===>";
+		cin>>dateOfBirth;
+                cout<<"\n Enter E-mail Id ===>";
+		cin>>email;
+                cout<<"\n Enter Address ===>";
+		cin>>addr;
+                cout<<"\n Enter Roll No ===>";
+		cin>>rollNo;
+                cout<<"\n Enter Semester ===>";
+		cin>>semester;
+		}
+			
+            void output_details()
+		{
+		cout<<"\t               Model Institute of Engineering"<<endl;
+				cout<<"\n________________________________________________________"<<endl;
+		cout<<"\n Student Name        :---> "<<name;
+		cout<<"\t\t\t\t   Father Name       :---> "<<fatherName;
+		cout<<"\n Contact No          :---> "<<phoneNumber;
+		cout<<"\t\t\t\t Date Of Birth       :---> "<<dateOfBirth;
+		cout<<"\n Email               :---> "<<email;
+		cout<<"\t\t\t\t   Address           :---> "<<addr;
+		cout<<"\n Roll No     :---> "<<rollNo;
+		cout<<"\t\t\t\t Semester          :---> "<<semester;
+			}
+
+		void update()
+		{
+			int choice;
+			cout<<"\n\n\t=========================> Update Information <=========================\n\n";
+			cout<<"\n\n\t ---------------> choose the Index of Details You Want to Update <--------------\n\n";
+			cout<<"\n\n 1. Student Name           ===>      "<<name<<"\n";
+			cout<<"\n\n 2. Father Name            ===>      "<<fatherName<<"\n";
+			cout<<"\n\n 3. Contact Number         ===>      "<<phoneNumber<<"\n";
+			cout<<"\n\n 4. Date Of Birth          ===>      "<<dateOfBirth<<"\n";
+			cout<<"\n\n 5. Email ID               ===>      "<<email<<"\n";
+			cout<<"\n\n 6. Address                ===>      "<<addr<<"\n";
+			cout<<"\n\n 7. Roll Number    ===>      "<<rollNo<<"\n";
+			cout<<"\n\n 8. Semester               ===>      "<<semester<<"\n";
+
+			cout<<"\n\n Enter Your Choice ====> ";
+			cin>>choice;
+			switch(choice)  // switch case to select the choice
+			{
+				case 1:
+					cout<<"\n\n Enter Student Name :--->";
+					cin>>name;
+					cout<<"\n";
+					break;
+
+				case 2:
+					cout<<"\n\n Enter Father Name :--->";
+					cin>>fatherName;
+					cout<<"\n";
+					break;
+
+				case 3:
+					cout<<"\n\n Enter Contact Number :--->";
+					cin>>phoneNumber;
+					cout<<"\n";
+					break;
+
+				case 4:
+					cout<<"\n\n Enter Date Of Birth :--->";
+					cin>>dateOfBirth;
+					cout<<"\n";
+					break;
+
+				case 5:
+					cout<<"\n\n Enter Email ID :--->";
+					cin>>email;
+					cout<<"\n";
+					break;
+
+                case 6:
+                    cout<<"\n\n Enter Address :--->";
+					cin>>addr;
+					cout<<"\n";
+					break;
+
+				case 7:
+					cout<<"\n\n Enter Roll Number :--->";
+					cin>>rollNo;
+					cout<<"\n";
+					break;
+
+				case 8:
+					cout<<"\n\n Enter Semester :--->";
+					cin>>semester;
+					break;
+
+				default:
+					cout<<"\n\n=======> Invalid Choice <=========\n ******** Try again ********\n\n";
+					break;
+			}
+		}
+};
+int main()
+{
+	student s;
+	while(1)
+	{
+		cout<<"\n\n\t ********** Choose Operation You Want To Perform **********\n\n";
+		cout<<"\n\n\t\t Press 1 to Insert Record of Student";
+		cout<<"\n\n\t\t Press 2 to Update Record";
+		cout<<"\n\n\t\t Press 3 If you want to Display Record";
+		cout<<"\n\n\t\t Press 4 to Exit ";
+		cout<<"\n\n Enter your choice====>";
+
+		int ch;
+
+		cin>>ch;
+		switch(ch)
+		{
+			case 1:
+				s.input_details();
+				break;
+
+			case 2:
+			    s.update();
+				break;
+
+			case 3:
+				s.output_details();
+				break;
+
+			case 4:
+                goto out;
+			default:
+				cout<<"\n\n\t========> Invalid choice <========";
+				break;
+		}
+	}
+	out:
+// getch();
+return 0;
+}
+
+
+
+
+
+(b) 
+
+#include <iostream>
+#include <vector>
+using namespace std;
+//student class is created
+class Student {
+private: // private data members are declared
+string name;
+string fatherName;
+string phoneNumber;
+int rollNo;
+string dateOfBirth;
+int semester,n;
+string email;
+string addr;
+public:
+    void addStudent(vector<Student>& students)
+    /*declares a reference to a vector of Student objects.
+    The vector container is a part of the C++ Standard Template Library (STL)
+    and provides a dynamic array-like data structure that can be resized and reallocated in memory as needed.
+    By declaring a reference to a vector of Student objects,
+    we can modify the vector from within a function without having to pass the vector by value,
+    which can be expensive in terms of memory usage and copying overhead.*/
+    {
+            cout << "Enter the number of students to get added: ";
+            cin >> n;
+            for (int i = 0; i < n; i++)
+            {
+            cout <<"\n Enter student name: ";
+            cin >> name;
+            cout << "\n Enter father's name: ";
+            cin >> fatherName;
+            cout<<"\n Enter Contact number: ";
+            cin>>phoneNumber;
+            cout<<" \nEnter Date Of Birth:";
+            cin>>dateOfBirth;
+            cout<<"\n Enter E-mail Id: ";
+            cin>>email;
+            cout<<"\n Enter Address: ";
+            cin>>addr;
+            cout<<"\n Enter Roll No: ";
+            cin>>rollNo;
+            cout<<"\n Enter Semester: ";
+            cin>>semester;
+            students.push_back(*this);
+            }
+    }
+        void updateStudent(vector<Student>& students)  //member function for data updating using roll no
+         {
+            int updateRollNo;
+            cout <<"Enter roll number of the student to be updated: ";
+            cin >> updateRollNo;
+            for (int i = 0; i < students.size(); i++) {
+                if (students[i].rollNo == updateRollNo) {
+                    cout << "Enter updated student name: ";
+                    cin >> students[i].name;
+                    cout << "Enter updated father's name: ";
+                    cin >> students[i].fatherName;
+                    cout << "Enter updated contact number: ";
+                    cin >> students[i].phoneNumber;
+                    cout << "Enter updated date of birth : ";
+                    cin >> students[i].dateOfBirth;
+                    cout << "Enter updated email : ";
+                    cin >> students[i].email;
+                    cout << "Enter updated address : ";
+                    cin >> students[i].addr;
+                    cout << "Enter updated semester : ";
+                    cin >> students[i].semester;
+
+                }
+            }
+        }
+        void deleteStudent(vector<Student>& students) // member function which deletes the data of a specific student
+        {
+            int deleteRollNo;
+            cout << "Enter roll number of the student to be deleted: ";
+            cin >> deleteRollNo;
+            for (int i = 0; i < students.size(); i++) {
+                if (students[i].rollNo == deleteRollNo) {
+                    students.erase(students.begin() + i);
+                }
+            }
+        }
+        void displayStudents(vector<Student>& students) {
+            cout << "Name\tFather's Name\t Contact Number\t Date of Birth\t Email ID\t Address\t Roll Number\t Semester\t\n";
+            for (int i = 0; i < students.size(); i++) {
+                cout << students[i].name << "\t" << students[i].fatherName << "\t\t" << students[i].phoneNumber << "\t\t" << students[i].dateOfBirth <<"\t\t" <<students[i].email <<"\t\t" <<students[i].addr << "\t\t" << students[i].rollNo<< "\t\t" << students[i].semester<< endl;
+            }
+        }
+};
+
+int main() {
+    vector<Student> students;
+    Student s;
+    int choice;
+    do {
+        cout<<"\n\t               Model Institute of Engineering"<<endl;
+        cout<<"\n_____________________________________________________________________________"<<endl;
+        cout << "1. Add student" << endl;
+        cout << "2. Update student" << endl;
+        cout << "3. Delete student" << endl;
+        cout << "4. Display all students" << endl;
+        cout << "5. Exit" << endl;
+        cout << "\n Enter your choice: ";
+        cin >> choice;
+        switch(choice) {
+            case 1:
+                s.addStudent(students);
+                break;
+            case 2:
+                s.updateStudent(students);
+                break;
+            case 3:
+                s.deleteStudent(students);
+                break;
+            case 4:
+                s.displayStudents(students);
+                break;
+            case 5:
+                break;
+            default:
+                cout << "Invalid choice" << endl;
+        }
+    } while (choice != 5);
+    return 0;
+}
